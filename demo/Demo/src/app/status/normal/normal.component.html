@@ -1,0 +1,11 @@
+<p>normal works!</p>
+ <button [disabled]="isnormal" (click)="normalstatus()">normal</button>
+ <p>{{status}}</p>
+
+ <label for="eventbinding">eventbinding</label><br>
+ <input type="text" id="eventbinding" (input)="statusinput($event)">
+ <p>{{statusname}}</p>
+ <!-- two data binding
+data flows from template to file vice vers -->
+<input type="text" [(ngModel)]="statusname">
+<p>{{statusname}}</p>
