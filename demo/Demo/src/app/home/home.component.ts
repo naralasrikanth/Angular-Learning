@@ -24,18 +24,22 @@ export class HomeComponent {
   colorCoding:object;
   showpassword:boolean=false;
   passwords=[];
+  status:string='warning';
 constructor(){
   this.colorCoding={
     color:'black'
   };
+  if(!this.status){
+    this.status='alarm';
+  }
 }
 changingColor() {
+  
   this.colorCoding={
     color:'red'
   }
+ 
 }
-
-
 addingPassword() {
 this.showpassword=!this.showpassword;
   this.passwords.push(this.passwords.length);
