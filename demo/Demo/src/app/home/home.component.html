@@ -21,3 +21,12 @@
 [ngClass]="{textclr:password >=4}">
   {{password}}
 </div>
+<!-- ngSwitch -->
+<!-- mutiple conditions to be check
+it is similar to the switch statement like c#-->
+<div [ngSwitch]="status">
+    <p *ngSwitchCase="'warning'">Warning</p>
+    <p *ngSwitchCase="'alarm'">Alarm</p>
+    <p *ngSwitchDefault>Normal</p>
+
+</div>
