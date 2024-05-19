@@ -1,1 +1,23 @@
 <!-- <p>home works!</p> -->
+<!-- Attribute directive : Dynamically applies the css changes to the HTML template -->
+<!-- ngStyle: Dynamically applies the css
+  ngClass: Dynamically add or remove the css -->
+  <!-- [ngStyle]="{property: style}" 
+       [ngClass]="{classname:condition}"-->
+
+       <!-- ngFor: iteratea over the collection of data -->
+       <!-- Finding index using ngFor:   <div *ngFor="let items of data; let i = index"></div>
+     -->
+  
+<div>
+    <p [ngStyle]="colorCoding" (click)="changingColor()">Home</p>
+</div>
+
+<button  (click)="addingPassword()">Display Details</button>
+
+<p *ngIf="showpassword">Password</p>
+<div *ngFor="let password of passwords"
+[ngStyle]="{backgroundColor: password >= 4 ? 'blue' : 'white'}"
+[ngClass]="{textclr:password >=4}">
+  {{password}}
+</div>
