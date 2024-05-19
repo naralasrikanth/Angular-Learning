@@ -1,3 +1,30 @@
 <h4>Alarm status is displayed</h4>
 <!-- data flows from ts file to view template -->
 <p> string interpolation is the technique where data flows from ts file to template ex: {{id}}</p>
+
+<!-- data binding  -->
+<label for="binding">userName</label> <br>
+<input type="text" id="binding" [(ngModel)]="username">
+<!-- <button [disabled]="username == ''" (click)="updatingusername($event)">click me </button> -->
+<!-- <p>{{username}}</p> -->
+
+
+<!-- structural directives
+it will add or remove instruction to DOM -->
+<button [disabled]="!username" (click)="updatingusername($event)">Add</button>
+<!-- <p *ngIf="validusername; else invalidUserName">Username of your account is: {{ username }}</p> -->
+
+<ng-template #invalidUserName>
+  <p>No user was created</p>
+</ng-template>
+
+@if(validusername){
+    <p>Username of your account is:{{username}}</p>
+}
+@else{
+
+        <p>No user was created</p>
+    
+}
+
+
