@@ -2,31 +2,37 @@
 <!-- Attribute directive : Dynamically applies the css changes to the HTML template -->
 <!-- ngStyle: Dynamically applies the css
   ngClass: Dynamically add or remove the css -->
-  <!-- [ngStyle]="{property: style}" 
+<!-- [ngStyle]="{property: style}" 
        [ngClass]="{classname:condition}"-->
 
-       <!-- ngFor: iteratea over the collection of data -->
-       <!-- Finding index using ngFor:   <div *ngFor="let items of data; let i = index"></div>
+<!-- ngFor: iteratea over the collection of data -->
+<!-- Finding index using ngFor:   <div *ngFor="let items of data; let i = index"></div>
      -->
-  
+
 <div>
-    <p [ngStyle]="colorCoding" (click)="changingColor()">Home</p>
+  <p [ngStyle]="colorCoding" (click)="changingColor()">Home</p>
 </div>
 
-<button  (click)="addingPassword()">Display Details</button>
+<button (click)="addingPassword()">Display Details</button>
 
 <p *ngIf="showpassword">Password</p>
-<div *ngFor="let password of passwords"
-[ngStyle]="{backgroundColor: password >= 4 ? 'blue' : 'white'}"
-[ngClass]="{textclr:password >=4}">
+<div *ngFor="let password of passwords" [ngStyle]="{backgroundColor: password >= 4 ? 'blue' : 'white'}"
+  [ngClass]="{textclr:password >=4}">
   {{password}}
 </div>
 <!-- ngSwitch -->
 <!-- mutiple conditions to be check
 it is similar to the switch statement like c#-->
 <div [ngSwitch]="status">
-    <p *ngSwitchCase="'warning'">Warning</p>
-    <p *ngSwitchCase="'alarm'">Alarm</p>
-    <p *ngSwitchDefault>Normal</p>
+  <p *ngSwitchCase="'warning'">Warning</p>
+  <p *ngSwitchCase="'alarm'">Alarm</p>
+  <p *ngSwitchDefault>Normal</p>
 
+</div>
+
+
+<div class="container">
+  <div class="row"></div>
+  <div class="col-xs-10 bg-dark"></div>
+  <h3>hello</h3>
 </div>
