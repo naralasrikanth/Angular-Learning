@@ -36,3 +36,15 @@ it is similar to the switch statement like c#-->
   <div class="col-xs-10 bg-dark"></div>
   <h3>hello</h3>
 </div>
+
+<div *ngFor="let status of colorcode">
+<p>{{status}}</p>
+</div>
+
+<!-- custom property binding -->
+<p>{{customprop}}</p>
+<!-- 
+<div appCustom [isCorrect]="true">Green</div>
+<div appCustom [isCorrect]="false">Red</div> -->
+
+<button (click)="onDelete()">Delete Item</button>

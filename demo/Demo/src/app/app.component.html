@@ -1,5 +1,5 @@
 <!-- <h1>starting the angular course</h1> -->
-<!-- <app-home></app-home> -->
+
 <!-- <div home>
   attribute selector
 </div> -->
@@ -9,6 +9,8 @@
 <!-- <app-warning></app-warning>
 <app-normal></app-normal>
 <app-alarm></app-alarm> -->
-<app-header></app-header>
+<!-- <app-header></app-header>
 <app-recipes></app-recipes>
-<app-shoping-list></app-shoping-list>
+<app-shoping-list></app-shoping-list> -->
+<!-- <app-home [customprop]="data"></app-home> -->
+<app-home (itemDeleted)="customEventHandling($event)" ></app-home>
