@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input, Output,EventEmitter } from '@angular/core';
+
+// import { EventEmitter } from 'stream';
 
 @Component({
   //3 types of selectors
@@ -21,6 +23,11 @@ import { Component } from '@angular/core';
   // `
 })
 export class HomeComponent {
+  @Input() colorcode :[{normal:string,warning:string,Alarm:string }]
+
+  @Input() customprop: string;
+  @Input() numbers:number[]
+  @Output() itemDeleted = new EventEmitter<any>();
   colorCoding:object;
   showpassword:boolean=false;
   passwords=[];
@@ -43,6 +50,9 @@ changingColor() {
 addingPassword() {
 this.showpassword=!this.showpassword;
   this.passwords.push(this.passwords.length);
+}
+onDelete(){
+  this.itemDeleted.emit('event binding - data from child');
 }
 
 };
