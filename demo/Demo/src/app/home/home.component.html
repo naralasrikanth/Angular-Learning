@@ -1,4 +1,4 @@
-<!-- <p>home works!</p> -->
+
 <!-- Attribute directive : Dynamically applies the css changes to the HTML template -->
 <!-- ngStyle: Dynamically applies the css
   ngClass: Dynamically add or remove the css -->
@@ -9,7 +9,7 @@
 <!-- Finding index using ngFor:   <div *ngFor="let items of data; let i = index"></div>
      -->
 
-<div>
+<!-- <div>
   <p [ngStyle]="colorCoding" (click)="changingColor()">Home</p>
 </div>
 
@@ -19,11 +19,11 @@
 <div *ngFor="let password of passwords" [ngStyle]="{backgroundColor: password >= 4 ? 'blue' : 'white'}"
   [ngClass]="{textclr:password >=4}">
   {{password}}
-</div>
+</div> -->
 <!-- ngSwitch -->
 <!-- mutiple conditions to be check
 it is similar to the switch statement like c#-->
-<div [ngSwitch]="status">
+<!-- <div [ngSwitch]="status">
   <p *ngSwitchCase="'warning'">Warning</p>
   <p *ngSwitchCase="'alarm'">Alarm</p>
   <p *ngSwitchDefault>Normal</p>
@@ -39,12 +39,21 @@ it is similar to the switch statement like c#-->
 
 <div *ngFor="let status of colorcode">
 <p>{{status}}</p>
-</div>
+</div> -->
 
-<!-- custom property binding -->
-<p>{{customprop}}</p>
+<!-- custom property binding
+<p>{{customprop}}</p> -->
 <!-- 
 <div appCustom [isCorrect]="true">Green</div>
 <div appCustom [isCorrect]="false">Red</div> -->
+<!-- 
+<button (click)="onDelete()">Delete Item</button> -->
 
-<button (click)="onDelete()">Delete Item</button>
+
+<!-- demo app starts from here -->
+<div>
+<button (click)="onSelectUser">
+  <img [src]="imagePath()" alt="selectedUser().name" />
+  <span>{{selectedUser().name}}</span>
+</button>  
+</div>

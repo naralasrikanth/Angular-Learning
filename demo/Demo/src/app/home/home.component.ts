@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output,EventEmitter } from '@angular/core';
+import { Component, Input, Output,EventEmitter ,signal, computed} from '@angular/core';
+import { Users } from "../shared/Users";
+import { userInfo } from 'os';
 
-// import { EventEmitter } from 'stream';
+const randomIndex = Math.floor(Math.random()* Users.length);
 
 @Component({
   //3 types of selectors
@@ -23,36 +25,51 @@ import { Component, Input, Output,EventEmitter } from '@angular/core';
   // `
 })
 export class HomeComponent {
-  @Input() colorcode :[{normal:string,warning:string,Alarm:string }]
+//   @Input() colorcode :[{normal:string,warning:string,Alarm:string }]
 
-  @Input() customprop: string;
-  @Input() numbers:number[]
-  @Output() itemDeleted = new EventEmitter<any>();
-  colorCoding:object;
-  showpassword:boolean=false;
-  passwords=[];
-  status:string='warning';
-constructor(){
-  this.colorCoding={
-    color:'black'
-  };
-  if(!this.status){
-    this.status='alarm';
-  }
-}
-changingColor() {
+//   @Input() customprop: string;
+//   @Input() numbers:number[]
+//   @Output() itemDeleted = new EventEmitter<any>();
+//   colorCoding:object;
+//   showpassword:boolean=false;
+//   passwords=[];
+//   status:string='warning';
+// constructor(){
+//   this.colorCoding={
+//     color:'black'
+//   };
+//   if(!this.status){
+//     this.status='alarm';
+//   }
+// }
+// changingColor() {
   
-  this.colorCoding={
-    color:'red'
-  }
+//   this.colorCoding={
+//     color:'red'
+//   }
  
-}
-addingPassword() {
-this.showpassword=!this.showpassword;
-  this.passwords.push(this.passwords.length);
-}
-onDelete(){
-  this.itemDeleted.emit('event binding - data from child');
+// }
+// addingPassword() {
+// this.showpassword=!this.showpassword;
+//   this.passwords.push(this.passwords.length);
+// }
+// onDelete(){
+//   this.itemDeleted.emit('event binding - data from child');
+// }
+// starting demo angular basics by using signal
+
+// signals notify the component , when ever data changes , instead of change detection, pin point the component changes that UI
+
+selectedUser =signal(Users[randomIndex]);
+imagePath= computed(()=> 'assets/users/' + this.selectedUser().Image);
+
+// get imagePath() {
+//   return 'assets/users/' + this.selectedUser.Image;
+// }
+
+onSelectUser(){
+  const randomIndex = Math.floor(Math.random()* Users.length);
+  this.selectedUser.set(Users[randomIndex]);
 }
 
 };
