@@ -9,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-collapsed:boolean=true;
+// collapsed:boolean=true;
+// 
 }
