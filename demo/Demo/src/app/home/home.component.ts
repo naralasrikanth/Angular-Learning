@@ -1,9 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output,EventEmitter ,signal, computed} from '@angular/core';
 import { Users } from "../shared/Users";
-import { userInfo } from 'os';
+import { type User } from "./user.model";
 
-const randomIndex = Math.floor(Math.random()* Users.length);
+
+// const randomIndex = Math.floor(Math.random()* Users.length);
+
+
 
 @Component({
   //3 types of selectors
@@ -60,16 +63,21 @@ export class HomeComponent {
 
 // signals notify the component , when ever data changes , instead of change detection, pin point the component changes that UI
 
-selectedUser =signal(Users[randomIndex]);
-imagePath= computed(()=> 'assets/users/' + this.selectedUser().Image);
+// selectedUser =signal(Users[randomIndex]);
+// imagePath= computed(()=> 'assets/users/' + this.selectedUser().Image);
 
-// get imagePath() {
-//   return 'assets/users/' + this.selectedUser.Image;
-// }
+// @Input({required:true}) Image:string;
+// @Input() name : string;
+@Input() user!:User;
+@Output() select = new EventEmitter();
+get imagePath() {
+  return 'assets/Users/' + this.user.Image;
+}
 
 onSelectUser(){
-  const randomIndex = Math.floor(Math.random()* Users.length);
-  this.selectedUser.set(Users[randomIndex]);
+  // const randomIndex = Math.floor(Math.random()* Users.length);
+  // this.selectedUser.set(Users[randomIndex]);
+  this.select.emit(this.user.id);
 }
 
 };
