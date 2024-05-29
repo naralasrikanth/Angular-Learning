@@ -18,7 +18,16 @@
 <!-- starting form below-->
 <app-header></app-header>
 <main>
-  <ul>
-    <li><app-home /></li>
+  <ul id="users">
+     <!-- @for(user of users; track user.id){ -->
+
+    <li class="userList" *ngFor="let user of users">
+      <app-home [user]="user" (select)="onSelectedUser($event)" />
+    </li>
+  <!-- } -->
   </ul>
+  <app-task *ngIf="selectedUser; else elseblock" [name]="selectedUser!.name"></app-task>
+  <ng-template #elseblock>
+    <p id="elseblock">select a user to see their task!</p>
+  </ng-template>
 </main>

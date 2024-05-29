@@ -9,20 +9,34 @@ import { ShopingListComponent } from './shoping-list/shoping-list.component';
 import bootstrap from '../main.server';
 import { HeaderComponent } from './Header/header/header.component';
 import { CommonModule } from '@angular/common';
+import { Users } from './shared/Users';
+import { TaskComponent } from './task/task.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,HomeComponent,WarningComponent,NormalComponent,AlarmComponent,RecipesComponent,ShopingListComponent,HeaderComponent,
-    CommonModule],
+    CommonModule,TaskComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Demo';
- colorcode= [{normal:"Green",warning:"Amber",Alarm:"Red"}];
- data ='custom property binding';
- customEventHandling(data : string){
-  console.log('recevied event from child',data);
- }
+//   title = 'Demo';
+//  colorcode= [{normal:"Green",warning:"Amber",Alarm:"Red"}];
+//  data ='custom property binding';
+//  customEventHandling(data : string){
+//   console.log('recevied event from child',data);
+//  }
+
+// starting
+
+users =Users ;
+selectedUserId='1';
+
+get selectedUser(){
+  return this.users.find((user) => user.id === this.selectedUserId);
+}
+onSelectedUser (id:string){
+  this.selectedUserId=id;
+}
 }
