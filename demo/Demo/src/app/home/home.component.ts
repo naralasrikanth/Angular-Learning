@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, Output,EventEmitter ,signal, computed} from '@angular/core';
 import { Users } from "../shared/Users";
 import { type User } from "./user.model";
+import { CardComponent } from '../shared/card/card.component';
 
 
 // const randomIndex = Math.floor(Math.random()* Users.length);
@@ -17,7 +18,7 @@ import { type User } from "./user.model";
 // 3. class selector
 // selector:'.home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,CardComponent],
   templateUrl: './home.component.html',
   // template:'<p> inline works </p>',
   styleUrl: './home.component.css'
