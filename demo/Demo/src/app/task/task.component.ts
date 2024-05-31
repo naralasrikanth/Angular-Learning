@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { title } from 'process';
 import { TasksComponent } from './tasks/tasks.component';
 import { NewTaskComponent } from './new-task/new-task.component';
+import { NewTaskData } from './tasks/task.model';
 
 @Component({
   selector: 'app-task',
@@ -71,5 +72,16 @@ export class TaskComponent {
   onCompleteTask(id:string){
     console.log('data is completed',id)
   }
+  onAddTask(taskData : NewTaskData) {
+    this.tasks.unshift({
+      id: new Date().getTime().toString(),
+      userId:this.userId,
+      title:taskData.summary,
+      summary: taskData.summary,
+      dueDate : taskData.date,
+    })
+    this.isAddingTask = false;
+  }
+
 
 }

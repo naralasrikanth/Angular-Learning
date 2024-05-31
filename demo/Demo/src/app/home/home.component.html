@@ -1,4 +1,3 @@
-
 <!-- Attribute directive : Dynamically applies the css changes to the HTML template -->
 <!-- ngStyle: Dynamically applies the css
   ngClass: Dynamically add or remove the css -->
@@ -57,9 +56,11 @@ it is similar to the switch statement like c#-->
   <span>{{selectedUser().name}}</span>
 </button>  
 </div> -->
-<div>
-  <button (click)="onSelectUser()">
-    <img [src]="imagePath" alt="selectedUser.name" />
-    <span>{{user.name}}</span>
-  </button>  
-</div>
+<app-card>
+  <div>
+    <button (click)="onSelectUser()">
+      <img [src]="imagePath" alt="selectedUser.name" />
+      <span>{{user.name}}</span>
+    </button>
+  </div>
+</app-card>
