@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -17,11 +17,15 @@ import { FormsModule } from '@angular/forms';
 export class AlarmComponent {
   id:number=9;
   username:any='';
+  inputId='';
   validusername:boolean=true;
   updatingusername(event:Event){
     this.username=(<HTMLInputElement>event.target).value;
     // this.username='';
     this.validusername=false;
+  }
+  onSubmit(){
+    console.log(this.inputId);
   }
 
 }

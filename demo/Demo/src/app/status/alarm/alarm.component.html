@@ -27,4 +27,8 @@ it will add or remove instruction to DOM -->
     
 }
 
-
+<form (ngSubmit)="onSubmit()">
+  <label for="id">ID</label>
+  <input type="text" id="id" name="id" [(ngModel)]="inputId" [ngModelOptions]="{standalone : true}">
+  <button type="submit">Submit </button>
+</form>

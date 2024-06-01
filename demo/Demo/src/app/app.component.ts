@@ -11,12 +11,13 @@ import { HeaderComponent } from './Header/header/header.component';
 import { CommonModule } from '@angular/common';
 import { Users } from './shared/Users';
 import { TaskComponent } from './task/task.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,HomeComponent,WarningComponent,NormalComponent,AlarmComponent,RecipesComponent,ShopingListComponent,HeaderComponent,
-    CommonModule,TaskComponent],
+    CommonModule,TaskComponent,FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -31,7 +32,7 @@ export class AppComponent {
 // starting
 
 users =Users ;
-selectedUserId='1';
+selectedUserId?:string;
 
 get selectedUser(){
   return this.users.find((user) => user.id === this.selectedUserId);
