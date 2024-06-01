@@ -1,5 +1,5 @@
 import { Component ,Output,EventEmitter} from '@angular/core';
-import { NewTaskData } from '../tasks/task.model';
+import {type  NewTaskData } from '../tasks/task.model';
 import { FormsModule } from '@angular/forms';
 
 

@@ -70,7 +70,8 @@ export class HomeComponent {
 // @Input({required:true}) Image:string;
 // @Input() name : string;
 @Input() user!:User;
-@Output() select = new EventEmitter();
+@Input() selected! : boolean;
+@Output() select = new EventEmitter<string>();
 get imagePath() {
   return 'assets/Users/' + this.user.Image;
 }

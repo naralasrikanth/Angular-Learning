@@ -22,12 +22,13 @@
      <!-- @for(user of users; track user.id){ -->
 
     <li class="userList" *ngFor="let user of users">
-      <app-home [user]="user" (select)="onSelectedUser($event)" />
+      <app-home [user]="user" [selected]="user.id === selectedUserId" (select)="onSelectedUser($event)" />
     </li>
   <!-- } -->
   </ul>
-  <app-task *ngIf="selectedUser; else elseblock" [name]="selectedUser!.name"></app-task>
+  <app-task *ngIf="selectedUser; else elseblock"[userId]="selectedUser.id" [name]="selectedUser!.name"></app-task>
   <ng-template #elseblock>
     <p id="elseblock">select a user to see their task!</p>
   </ng-template>
 </main>
+<app-alarm></app-alarm>

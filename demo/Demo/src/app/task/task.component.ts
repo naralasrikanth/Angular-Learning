@@ -70,7 +70,7 @@ export class TaskComponent {
     this.isAddingTask=false;
   }
   onCompleteTask(id:string){
-    console.log('data is completed',id)
+    this.tasks = this.tasks.filter((task) => task.id !==id);
   }
   onAddTask(taskData : NewTaskData) {
     this.tasks.unshift({
