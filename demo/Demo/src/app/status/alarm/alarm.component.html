@@ -32,3 +32,10 @@ it will add or remove instruction to DOM -->
   <input type="text" id="id" name="id" [(ngModel)]="inputId" [ngModelOptions]="{standalone : true}">
   <button type="submit">Submit </button>
 </form>
+
+<!-- custom pipe
+1.to transform raw data to desired format data for the end use -->
+<div>
+  <h4> withoutPipe{{reversstring}}</h4>
+  <h4>withCustom Pipe {{reversstring | reverse}}</h4>
+</div>
