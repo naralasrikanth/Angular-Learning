@@ -1,0 +1,27 @@
+<form (ngSumbit)="onSumbit">
+    <div class="inputs">
+        <p>
+            <label for="initial-investment">Initial Investment</label>
+            <input type="number" id="initial-investment" name="UserInputComponent" [(ngModel)="inputInitialInvestment"]>
+        </p>
+
+        <p>
+            <label for="annual-investment">Annual Investment</label>
+            <input type="number" id="initial-investment" name="annual-investment" [(ngModel)]="inputAnnualInvestment">
+        </p>
+    </div>
+    <div class="inputs">
+        <p>
+            <label for="expected-return"> Expected Return</label>
+            <input type="number" id="expected-return" name="expected-return" [(ngModel)]="inputExpectedReturn">
+        </p>
+        <p>
+            <label for="duration">Duration</label>
+            <input type="number" id="duration" name="duration" [(ngModel)]="inputDuration">
+        </p>
+    </div>
+    <p>
+        <button>Calculate</button>
+    </p>
+    
+</form>
