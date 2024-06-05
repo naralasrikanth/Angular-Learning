@@ -14,6 +14,7 @@ import { TaskComponent } from './task/task.component';
 import { FormsModule } from '@angular/forms';
 import { HeadercalComponent } from './Header/headercal/headercal.component';
 import { UserInputComponent } from './user-input/user-input.component';
+import { InvestmentInput } from './Investment-input.model';
 
 @Component({
   selector: 'app-root',
@@ -36,10 +37,36 @@ export class AppComponent {
 users =Users ;
 selectedUserId?:string;
 
+onCalculateInvestmentResults ( data : InvestmentInput) {
+  const { initialInvestment,annualInvestment,duration,expectedReturn}=data;
+  const annualData = [];
+  let investmentValue = initialInvestment;
+
+  for(let i=0; i< duration;i++){
+    const year = i+1;
+    const interestEarnedInYear = investmentValue * (expectedReturn /100);
+    investmentValue += interestEarnedInYear + annualInvestment;
+    const totalInterest = investmentValue - annualInvestment * year - initialInvestment;
+    annualData.push({
+      year:year,
+      interest:interestEarnedInYear,
+      valueEndOfYear:investmentValue,
+      annualInvestment:annualInvestment,
+      totalInterest:totalInterest,
+      totalAmountInvested:initialInvestment + annualInvestment * year,
+    });
+  }
+
+//  return annualData;
+ console.log(annualData);
+}
+
 get selectedUser(){
   return this.users.find((user) => user.id === this.selectedUserId);
 }
 onSelectedUser (id:string){
   this.selectedUserId=id;
 }
+
+ 
 }
