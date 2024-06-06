@@ -15,12 +15,13 @@ import { FormsModule } from '@angular/forms';
 import { HeadercalComponent } from './Header/headercal/headercal.component';
 import { UserInputComponent } from './user-input/user-input.component';
 import { InvestmentInput } from './Investment-input.model';
+import { InvestmnetReultsComponent } from './investmnet-reults/investmnet-reults.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,HomeComponent,WarningComponent,NormalComponent,AlarmComponent,RecipesComponent,ShopingListComponent,HeaderComponent,
-    CommonModule,TaskComponent,FormsModule,HeadercalComponent,UserInputComponent],
+    CommonModule,TaskComponent,FormsModule,HeadercalComponent,UserInputComponent,InvestmnetReultsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -33,7 +34,14 @@ export class AppComponent {
 //  }
 
 // starting
-
+resultsData?:{
+  year:number;
+  interest:number;
+  valueEndOfYear:number;
+  annualInvestment:number;
+  totalInterest:number;
+  totalAmountInvested:number;
+}[];
 users =Users ;
 selectedUserId?:string;
 
@@ -57,8 +65,8 @@ onCalculateInvestmentResults ( data : InvestmentInput) {
     });
   }
 
-//  return annualData;
- console.log(annualData);
+  this.resultsData=annualData;
+//  console.log(annualData);
 }
 
 get selectedUser(){
