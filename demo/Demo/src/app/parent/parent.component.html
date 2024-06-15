@@ -1,2 +1,28 @@
 <h4>ngoncahnges</h4>
 <app-child [data]="parentData"></app-child>
+
+<!-- ngDocheck -->
+ <h1>ngDocheck example ---</h1>
+ <p>Data :{{data[data.length-1]}}</p>
+ <!-- ngAfterContentInit -->
+  <div>
+    <h2>parent component</h2>
+    <app-child>
+        <p #projectedContent>This is the projected content</p>
+    </app-child>
+  </div>
+  <!-- ngAfterContentChecked -->
+   <!--is called after every cehck of the component's pr doirectives content  -->
+   <div>
+    <h2>Parent Component</h2>
+    <app-child>
+        <p #projectedContent>This is the Projected Content ngAfterContentChecked</p>
+    </app-child>
+    <button (click)="changeContent()">Change Content</button>
+   </div>
+
+   <!-- ngAfterView init -->
+    <!-- is called once after the component view(and child views) has been fully initialized -->
+     <div>
+        <p #headerElement>ngAfterViewInit</p>
+     </div>

@@ -17,13 +17,14 @@ import { UserInputComponent } from './user-input/user-input.component';
 import { InvestmentInput } from './Investment-input.model';
 import { InvestmnetReultsComponent } from './investmnet-reults/investmnet-reults.component';
 import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './parent/child/child.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,HomeComponent,WarningComponent,NormalComponent,AlarmComponent,RecipesComponent,ShopingListComponent,HeaderComponent,
     CommonModule,TaskComponent,FormsModule,HeadercalComponent,UserInputComponent,InvestmnetReultsComponent,
-    ParentComponent],
+    ParentComponent,ChildComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
