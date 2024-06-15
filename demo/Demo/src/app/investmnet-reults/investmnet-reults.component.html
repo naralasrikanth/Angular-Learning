@@ -1,8 +1,10 @@
-@if(!results){
+<!-- @if(!results){ -->
+ <div *ngIf !="results" #resulteddata>
     <p class="center">Please enter some values for calculation</p>
-}
-@else{
-    <table>
+    </div>
+<!-- }@else{ -->
+ <ng-template else="resulteddata">
+   <table>
         <thead>
             <tr>
                 <th>Year</th>
@@ -13,15 +15,19 @@
             </tr>
         </thead>
         <tbody>
-            @for(result of results; track result.year){
+            <!-- @for(result of results; track result.year){ -->
+             <div *ngFor="let result of results">
                 <tr>
-                    <td>{{result.year}} | currency</td>
+                    <td>{{result.year}}</td>
                     <td>{{result.valueEndOfYear}} | currency</td>
                     <td>{{result.interest}} | currency</td>
                     <td>{{result.totalInterest}} | currency</td>
                     <td>{{result.totalAmountInvested}} | currency</td>
                 </tr>
-            }
+                </div>
+            <!-- } -->
         </tbody>
     </table>
-}
+    
+    </ng-template>
+<!-- } -->
