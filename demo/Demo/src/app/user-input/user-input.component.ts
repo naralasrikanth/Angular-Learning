@@ -1,11 +1,12 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { InvestmentInput } from '../Investment-input.model';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-user-input',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,ReactiveFormsModule,CurrencyPipe,],
   templateUrl: './user-input.component.html',
   styleUrl: './user-input.component.css'
 })
@@ -17,15 +18,15 @@ export class UserInputComponent {
   inputExpectedReturn='0';
   inputDuration='5';
 
-onSumbit(){
+  onSubmit(){
 console.log('s');
 this.calculate.emit({
   initialInvestment: +this.inputInitialInvestment,
-  annualInvestment:+this.inputAnnualInvestment,
   duration:+this.inputDuration,
   expectedReturn : + this.inputExpectedReturn,
-  
+  annualInvestment:+this.inputAnnualInvestment, 
 });
+// console.log(this.calculate)
 
 }
 }

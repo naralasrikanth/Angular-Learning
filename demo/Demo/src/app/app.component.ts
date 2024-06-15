@@ -16,12 +16,14 @@ import { HeadercalComponent } from './Header/headercal/headercal.component';
 import { UserInputComponent } from './user-input/user-input.component';
 import { InvestmentInput } from './Investment-input.model';
 import { InvestmnetReultsComponent } from './investmnet-reults/investmnet-reults.component';
+import { ParentComponent } from './parent/parent.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,HomeComponent,WarningComponent,NormalComponent,AlarmComponent,RecipesComponent,ShopingListComponent,HeaderComponent,
-    CommonModule,TaskComponent,FormsModule,HeadercalComponent,UserInputComponent,InvestmnetReultsComponent],
+    CommonModule,TaskComponent,FormsModule,HeadercalComponent,UserInputComponent,InvestmnetReultsComponent,
+    ParentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -66,7 +68,7 @@ onCalculateInvestmentResults ( data : InvestmentInput) {
   }
 
   this.resultsData=annualData;
-//  console.log(annualData);
+ console.log(this.resultsData);
 }
 
 get selectedUser(){

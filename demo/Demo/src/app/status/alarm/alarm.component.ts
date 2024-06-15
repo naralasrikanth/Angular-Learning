@@ -33,5 +33,8 @@ export class AlarmComponent {
   onSubmit(){
     console.log(this.inputId);
   }
+  constructor(){
+    console.log('angular life cycle hooks from the constructor')
+  }
 
 }
