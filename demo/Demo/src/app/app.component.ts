@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, SimpleChange, SimpleChanges } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { WarningComponent } from './status/warning/warning.component';
@@ -79,5 +79,27 @@ onSelectedUser (id:string){
   this.selectedUserId=id;
 }
 
- 
+ ngOnChanges(changes :SimpleChanges){
+  console.log('ngOnChanges called',changes);
+  
+ }
+ ngOnInit (){
+  console.log('ngOnInit called');  
+ }
+ ngDocheck(){
+  console.log('ngDocheck is called'); 
+ }
+ ngAfterContentInit(){
+  console.log('ngAfterContent is called');  
+ }
+ ngAfterContentChecked(){
+  console.log('ngAfterContentChecked is called'); 
+ }
+ ngAfterViewInit(){
+  console.log('ngAfterViewInit is called'); 
+ }
+ ngAfterViewChecked(){
+  console.log('ngAfterViewChecked is called');
+  
+ }
 }
