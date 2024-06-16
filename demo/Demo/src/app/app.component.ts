@@ -24,7 +24,7 @@ import { ChildComponent } from './parent/child/child.component';
   standalone: true,
   imports: [RouterOutlet,HomeComponent,WarningComponent,NormalComponent,AlarmComponent,RecipesComponent,ShopingListComponent,HeaderComponent,
     CommonModule,TaskComponent,FormsModule,HeadercalComponent,UserInputComponent,InvestmnetReultsComponent,
-    ParentComponent,ChildComponent],
+    ParentComponent,ChildComponent,FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -47,6 +47,12 @@ resultsData?:{
 }[];
 users =Users ;
 selectedUserId?:string;
+
+items = [
+  {name:'item1',selected:false},
+  {name: 'item 2', selected :false},
+  {name : 'item 3', selected:false}
+];
 
 onCalculateInvestmentResults ( data : InvestmentInput) {
   const { initialInvestment,annualInvestment,duration,expectedReturn}=data;
@@ -79,27 +85,30 @@ onSelectedUser (id:string){
   this.selectedUserId=id;
 }
 
- ngOnChanges(changes :SimpleChanges){
-  console.log('ngOnChanges called',changes);
+//  ngOnChanges(changes :SimpleChanges){
+//   console.log('ngOnChanges called',changes);
   
- }
- ngOnInit (){
-  console.log('ngOnInit called');  
- }
- ngDocheck(){
-  console.log('ngDocheck is called'); 
- }
- ngAfterContentInit(){
-  console.log('ngAfterContent is called');  
- }
- ngAfterContentChecked(){
-  console.log('ngAfterContentChecked is called'); 
- }
- ngAfterViewInit(){
-  console.log('ngAfterViewInit is called'); 
- }
- ngAfterViewChecked(){
-  console.log('ngAfterViewChecked is called');
+//  }
+//  ngOnInit (){
+//   console.log('ngOnInit called');  
+//  }
+//  ngDocheck(){
+//   console.log('ngDocheck is called'); 
+//  }
+//  ngAfterContentInit(){
+//   console.log('ngAfterContent is called');  
+//  }
+//  ngAfterContentChecked(){
+//   console.log('ngAfterContentChecked is called'); 
+//  }
+//  ngAfterViewInit(){
+//   console.log('ngAfterViewInit is called'); 
+//  }
+//  ngAfterViewChecked(){
+//   console.log('ngAfterViewChecked is called');
   
+//  }
+ toggleSelection(item:any){
+  item.selected =!item.selected;
  }
 }
