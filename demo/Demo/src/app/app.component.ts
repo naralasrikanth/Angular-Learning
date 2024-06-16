@@ -18,15 +18,18 @@ import { InvestmentInput } from './Investment-input.model';
 import { InvestmnetReultsComponent } from './investmnet-reults/investmnet-reults.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './parent/child/child.component';
+import { UserServiceService } from './Services/user-service.service';
+import { UserMangementComponent } from './user-mangement/user-mangement.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,HomeComponent,WarningComponent,NormalComponent,AlarmComponent,RecipesComponent,ShopingListComponent,HeaderComponent,
     CommonModule,TaskComponent,FormsModule,HeadercalComponent,UserInputComponent,InvestmnetReultsComponent,
-    ParentComponent,ChildComponent,FormsModule],
+    ParentComponent,ChildComponent,FormsModule,UserMangementComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  providers:[UserServiceService]
 })
 export class AppComponent {
 //   title = 'Demo';

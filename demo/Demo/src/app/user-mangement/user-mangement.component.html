@@ -1,0 +1,14 @@
+<div>
+    <h2>Active Users</h2>
+    <ul>
+        <li *ngFor="let user of activeUsers">
+        {{user}} <button (click)="deactivateUser(user)">Deactivate</button>
+        </li>
+    </ul>
+   <h2>Inactive Users</h2>
+   <ul>
+    <li *ngFor="let user of inactiveUsers">
+        {{user}} <button (click)="activateUser(user)">Activate</button>
+    </li>
+   </ul>
+</div>
