@@ -42,3 +42,10 @@
 <app-investmnet-reults [results]="resultsData"></app-investmnet-reults>
 <!-- Angular life cycle hooks -->
  <app-parent></app-parent>
+ <!-- Attribute directives  -->
+  <!-- Css can apply dynamically or conditionally -->
+   <div *ngFor="let data of items" (click)="toggleSelection(data)" 
+   [ngClass]="{'selected-item':data.selected}"
+   [ngStyle]="{'background-color':data.selected ? 'lightblue':'white'}">
+   {{data.name}}
+   </div>
