@@ -1,5 +1,5 @@
 import { Component, SimpleChange, SimpleChanges } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet,RouterModule,Routes, ActivatedRoute } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { WarningComponent } from './status/warning/warning.component';
 import { NormalComponent } from './status/normal/normal.component';
@@ -20,13 +20,18 @@ import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './parent/child/child.component';
 import { UserServiceService } from './Services/user-service.service';
 import { UserMangementComponent } from './user-mangement/user-mangement.component';
+import { AboutComponent } from './about/about.component';
+import { UsersComponent } from './users/users.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,HomeComponent,WarningComponent,NormalComponent,AlarmComponent,RecipesComponent,ShopingListComponent,HeaderComponent,
-    CommonModule,TaskComponent,FormsModule,HeadercalComponent,UserInputComponent,InvestmnetReultsComponent,
-    ParentComponent,ChildComponent,FormsModule,UserMangementComponent],
+  imports: [RouterOutlet,HomeComponent,WarningComponent,NormalComponent,AlarmComponent,
+    RecipesComponent,ShopingListComponent,HeaderComponent,
+    CommonModule,TaskComponent,FormsModule,HeadercalComponent,UserInputComponent,
+    InvestmnetReultsComponent,
+    ParentComponent,ChildComponent,FormsModule,UserMangementComponent,RouterModule,
+    AboutComponent,UsersComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   providers:[UserServiceService]
@@ -40,6 +45,7 @@ export class AppComponent {
 //  }
 
 // starting
+constructor(private route:ActivatedRoute){}
 resultsData?:{
   year:number;
   interest:number;
