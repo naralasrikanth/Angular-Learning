@@ -1,5 +1,9 @@
 import { Component, SimpleChange, SimpleChanges } from '@angular/core';
 import { RouterOutlet,RouterModule,Routes, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+
+
+
 import { HomeComponent } from './home/home.component';
 import { WarningComponent } from './status/warning/warning.component';
 import { NormalComponent } from './status/normal/normal.component';
@@ -119,5 +123,30 @@ onSelectedUser (id:string){
 //  }
  toggleSelection(item:any){
   item.selected =!item.selected;
+ }
+ ngOnInit():void {
+  this.createObservable();
+ }
+
+ createObservable():void {
+  const simpleObservable = new Observable<number>(observer => {
+    observer.next(1);
+    observer.next(2);
+    observer.next(3);
+    observer.next(4);
+    observer.complete();
+    
+ });
+
+ simpleObservable.subscribe({
+  next(value){
+    console.log('value',value);
+    
+  },complete(){
+    console.log('observable complete');
+    
+  }
+ })
+
  }
 }
