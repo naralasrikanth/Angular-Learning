@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 
 
 import { HomeComponent } from './home/home.component';
-import { WarningComponent } from './status/warning/warning.component';
 import { NormalComponent } from './status/normal/normal.component';
 import { AlarmComponent } from './status/alarm/alarm.component';
 import { RecipesComponent } from './Recipes/recipes/recipes.component';
@@ -26,16 +25,17 @@ import { UserServiceService } from './Services/user-service.service';
 import { UserMangementComponent } from './user-mangement/user-mangement.component';
 import { AboutComponent } from './about/about.component';
 import { UsersComponent } from './users/users.component';
+import { WarningComponent } from './status/warning/warning.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,HomeComponent,WarningComponent,NormalComponent,AlarmComponent,
+  imports: [RouterOutlet,HomeComponent,NormalComponent,AlarmComponent,
     RecipesComponent,ShopingListComponent,HeaderComponent,
     CommonModule,TaskComponent,FormsModule,HeadercalComponent,UserInputComponent,
     InvestmnetReultsComponent,
     ParentComponent,ChildComponent,FormsModule,UserMangementComponent,RouterModule,
-    AboutComponent,UsersComponent],
+    AboutComponent,UsersComponent,WarningComponent,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   providers:[UserServiceService]

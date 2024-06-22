@@ -1,2 +1,31 @@
-<p>warning status is displayed</p> <br>
+<div class="container">
+    <h2>Temlate Driven form</h2>
+    <hr>
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" class="form-control" name="name" ngModel required #name="ngModel"><br>
+            <span *ngIf="name.invalid && name.touched" calss="alert">Name is required</span>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="form-control" ngModel required min="12" #email="ngModel"><br>
+            <span *ngIf="email.invalid && email.touched" class="alert">Email is required</span>
+        </div>
+        <div calss="form-group">
+        <label for="Age">Age:</label>
+        <input type="number" id="Age" name="Age" class="form-control" ngModel required #Age="ngModel"><br>
+        <span *ngIf="Age.invalid && Age.touched" class="alert">Age is mandatory</span>
+        </div>
+        <button type="submit" calss="btn" [disabled]="userForm.invalid">Submit</button>
+    </form>
+   <div *ngIf="submitted">
+    <h3>Your Data</h3>
+    <hr>
+    <p>{{data.name}}</p>
+    <p>{{data.email}}</p>
+    <p>{{data.Age}}</p>
+
+   </div>
+</div>
 
