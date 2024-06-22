@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, DoCheck, ElementRef, OnChanges, OnInit, ViewChild, } from '@angular/core';
 import { ChildComponent } from './child/child.component';
 import { BackGroundDirective } from './background.directive';
+import { BehaviorSubject, ReplaySubject, } from 'rxjs';
 
 @Component({
   selector: 'app-parent',
@@ -14,6 +15,9 @@ export class ParentComponent {
   parentData:string='initial';
   dataHolder?:string;
   data:string[]=['first'];
+values:string[]=[];
+private valueCount =0;
+
   constructor(private changeDetector:ChangeDetectorRef){
   this.changeDetector.detach()//it will stop checking the changes
     console.log('parent component constructor');
@@ -48,6 +52,42 @@ export class ParentComponent {
   // this.headerElement.nativeElement.textContent = 'Header element - modified in ngAfterViewInit';
   
   // }
+
+  // replay subject
+  // replaySubject : if new subscriber also get old values
+  replaySubject = new ReplaySubject();
+  behaviorSubject = new BehaviorSubject('0');
+ngOnInit(){
+this.replaySubject.next('1');
+this.replaySubject.next('2');
+
+this.replaySubject.subscribe(
+  val => console.log('sub1'+ val),
+  err => console.log('sub1'+ err),
+  () => console.log('sub1 complete') 
+);
+this.replaySubject.next('3');
+this.replaySubject.complete();
+
+this.replaySubject.subscribe( val => {
+  console.log('sub3'+ val);
+  
+});
+
+// behaviourSubject
+// emits older values to the subscriber
+this.behaviorSubject.subscribe(val =>{
+  console.log('behaviorSubject'+ val);
+  
+});
+this.behaviorSubject.next('3');
+this.behaviorSubject.next('4');
+ this.behaviorSubject.subscribe( val => {
+  console.log('behaviorSubject2'+ val);
+  
+ });
+ this.behaviorSubject.next('100');
+ this.behaviorSubject.complete();
 }
 
-
+}
