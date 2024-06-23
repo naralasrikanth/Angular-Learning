@@ -29,3 +29,25 @@
    </div>
 </div>
 
+<!-- reactive forms -->
+ <div class="container">
+    <form [formGroup]="projectData" (ngSubmit)="onSave()">
+        <div class="form-group">
+            <label for="project">Project</label>
+            <input type="text" id="project" name="project" formControlName="project"><br>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" formControlName="email"><br>
+        </div>
+        <div class="form-group">
+            <label for="projectStatus">ProjectStatus</label>
+           <select name="projectStatus" id="projectStatus" formControlName="projectStatus">
+            <option  value="stable">Stable</option>
+            <option  value="Critical">Critical</option>
+            <option  value="Finished">Finished</option>
+           </select>
+        </div><br>
+        <button type="submit">onSave</button>
+    </form>
+ </div>
