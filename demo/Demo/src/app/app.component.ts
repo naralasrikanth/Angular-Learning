@@ -26,6 +26,7 @@ import { UserMangementComponent } from './user-mangement/user-mangement.componen
 import { AboutComponent } from './about/about.component';
 import { UsersComponent } from './users/users.component';
 import { WarningComponent } from './status/warning/warning.component';
+import { PipesComponent } from './pipes/pipes.component';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +36,7 @@ import { WarningComponent } from './status/warning/warning.component';
     CommonModule,TaskComponent,FormsModule,HeadercalComponent,UserInputComponent,
     InvestmnetReultsComponent,
     ParentComponent,ChildComponent,FormsModule,UserMangementComponent,RouterModule,
-    AboutComponent,UsersComponent,WarningComponent,],
+    AboutComponent,UsersComponent,WarningComponent,PipesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   providers:[UserServiceService]
